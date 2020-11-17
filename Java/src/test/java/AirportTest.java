@@ -35,7 +35,7 @@ public class AirportTest {
     @Test
     public void testGetTransportMilitaryPlanes() {
         Airport airport = new Airport(planes);
-        Assert.assertFalse(airport.getTransportMilitaryPlanes().IsEmpty());
+        Assert.assertTrue(airport.getTransportMilitaryPlanes().size() > 0);
     }
 
     @Test
