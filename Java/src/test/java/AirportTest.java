@@ -70,6 +70,6 @@ public class AirportTest {
         airport.sortByMaxSpeed();
         Assert.assertTrue(airport.getPlanes().get(0).getMaxSpeed() <= 
         airport.getPlanes().get(1).getMaxSpeed());
-}
+    }
     
 }
