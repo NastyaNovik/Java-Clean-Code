@@ -34,22 +34,42 @@ public class AirportTest {
     private static PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
 
     @Test
-    public void testGetTransportMilitaryPlanes() {
-        Airport airport = new Airport(planes);
-        Assert.assertTrue(airport.getTransportMilitaryPlanes().size() > 0);
+    public void hasTransportMilitaryPlanesTest() {
+        Assert.assertTrue( new Airport(planes).getTransportMilitaryPlanes().size() > 0);
     }
 
     @Test
-    public void testGetPassengerPlaneWithMaxCapacity() {
-        Airport airport = new Airport(planes);
-        Assert.assertTrue(airport.getPassengerPlaneWithMaxPassengersCapacity().equals(planeWithMaxPassengerCapacity));
+    public void hasBomberMilitaryPlanesTest() {
+        Assert.assertTrue(new Airport(planes).getBomberMilitaryPlanes().size() > 0);
     }
 
     @Test
-    public void testSortMaxLoadCapacity() {
+    public void getPassengerPlaneWithMaxCapacityTest() {
+        Assert.assertTrue(new Airport(planes).getPassengerPlaneWithMaxPassengersCapacity().equals(planeWithMaxPassengerCapacity));
+    }
+
+    @Test
+    public void sortMaxLoadCapacityTest() {
         Airport airport = new Airport(planes);
         airport.sortByMaxLoadCapacity();
         Assert.assertTrue(airport.getPlanes().get(0).getMaxLoadCapacity() <=
         airport.getPlanes().get(1).getMaxLoadCapacity());
     }
+
+    @Test
+    public void sortPlanesByMaxDistanceTest() {
+        Airport airport = new Airport(planes);
+        airport.sortByMaxDistance();
+        Assert.assertTrue(airport.getPlanes().get(0).getMaxFlightDistance() <= 
+        airport.Planes().get(1).getMaxFlightDistance());
+}
+
+    @Test
+    public void sortPlanesByMaxSpeedTest() {
+        Airport airport = new Airport(planes);
+        airport.sortByMaxSpeed();
+        Assert.assertTrue(airport.getPlanes().get(0).getMaxSpeed() <= 
+        airport.getPlanes().get(1).getMaxSpeed());
+}
+    
 }
